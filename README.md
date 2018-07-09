@@ -1,7 +1,9 @@
-# 2DKS
+# KS2D
 ## 2 Dimensional Kolmogorov-Smirnov test for goodness-of-fit.
 
-2DKS is a two-dimensional extension to the Kolmogorov-Smyrnov test for goodness-of-fit.
+*Status update*: KS2D was merge into the NHPPy project, as part of a suite of analysis tools useful for some stochastic processes. Development has halted.
+
+KS2D is a two-dimensional extension to the Kolmogorov-Smyrnov test for goodness-of-fit.
 It is used to compare datasets of points to a distributions, or two datasets of points, and either rejects or not rejects the hypothesis that the sample was derived from the distribution, or that the two samples are derived from the same distribution.
  
 *Note*: the test only rejects the hypothesis that the data fits with the probability distribution, or does not reject it for a certain significance level. It cannot confirm, only 'not-reject'.
