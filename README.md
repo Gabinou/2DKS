@@ -1,25 +1,23 @@
 # KS2D
 ## 2 Dimensional Kolmogorov-Smirnov test for goodness-of-fit.
 
-*Status update*: KS2D was merge into the NHPPy project, as part of a suite of analysis tools useful for some stochastic processes. Development has halted.
-
-KS2D is a two-dimensional extension to the Kolmogorov-Smyrnov test for goodness-of-fit.
+2DKS is a two-dimensional extension to the Kolmogorov-Smyrnov test for goodness-of-fit.
 It is used to compare datasets of points to a distributions, or two datasets of points, and either rejects or not rejects the hypothesis that the sample was derived from the distribution, or that the two samples are derived from the same distribution.
- 
+
 *Note*: the test only rejects the hypothesis that the data fits with the probability distribution, or does not reject it for a certain significance level. It cannot confirm, only 'not-reject'.
 
 In this case, we check if two-dimensional data fits a particular distribution. The extension to higher dimensions is non-trivial and requires on the order of N2 operations i.e. slow for large datasets.
 
-Mainly intended to be interacted with using functions `ks2d1s` and `ks2d2s`, which take as inputs one 2-column matrix and one 2D function, or two 2-column matrices respectively. 
+Mainly intended to be interacted with using functions ``ks2d1s`` and ``ks2d2s``, which take as inputs one 2-column matrix and one 2D function, or two 2-column matrices respectively. 
 These algorithms compute the relative probabilities of finding data in orthonormal quadrants that surround each point in the data set, then uses those to compute the K-S statistic with its distribution function (`Qks`). Look around 14.3.7 and 14.7.1 in [3] for detailed arcane mathemagic explanations. 
 
-`ks2d1s` and `ks2d2s` ouptputs the KS statistic *D*, and the significance level *prob* of that observed value of *D*, respectively. If *D* is lower than your significance level, you cannot reject the null hypothesis. As for the *prob*, the lower the better. I have not yet a full grasp on the significance of this number.
+``ks2d1s`` and ``ks2d2s`` outputs the KS statistic *D*, and the significance level *prob* of that observed value of *D*, respectively. If *D* is lower than your significance level, you cannot reject the null hypothesis. As for the *prob*, the lower the better. I have not yet a full grasp on the significance of this number.
 
 ## Issues
-Float number representation and rounding: probabilities expected to sum to 1.0 return 0.99999999 instead, etc...  No plans to implement any kind of solution to this: it sounds much more trouble than it is worth. This test is theoretically just an approximation, rounding to a couple digits seems reasonable.
 
-ks2d1s: Input: no 2D XxY density matrices, 
-    Integration method: only numerical.
+Float number representation and rounding: probabilities expected to sum to 1.0 return 0.99999999 instead, etc... No plans to implement any kind of solution to this: it sounds much more trouble than it is worth. This test is theoretically just an approximation, rounding to a couple digits seem reasonable.
+
+``ks2d1s``: Input: no 2D density matrices. Integration method: only numerical.
 
 ## MISC
 
