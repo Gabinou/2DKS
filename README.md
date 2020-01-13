@@ -1,4 +1,4 @@
-# KS2D
+# 2DKS
 ## 2 Dimensional Kolmogorov-Smirnov test for goodness-of-fit.
 
 2DKS is a two-dimensional extension to the Kolmogorov-Smyrnov test for goodness-of-fit.
