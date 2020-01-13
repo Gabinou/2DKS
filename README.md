@@ -23,7 +23,7 @@ Float number representation and rounding: probabilities expected to sum to 1.0 r
 
 Prerequisites: *scipy*, *numpy*.
 
-Keywords: Kolmogoro-smirnov test, multi-dimensional, two-dimensional, KS test, hypothesis testing, statistics, probability theory.
+Keywords: Kolmogorov-smirnov test, multi-dimensional, two-dimensional, KS test, hypothesis testing, statistics, probability theory.
 
 Based on the idea by Peacock (1983), an upgrade by Fasano and Franceschin (1987) with
 much guidance from Numerical recipes in C by Press and Teukolsky (1996).
