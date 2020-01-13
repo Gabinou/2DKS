@@ -1,0 +1,199 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Other functions &#8212; KS2D 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Tutorial" href="tutorial.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="tutorial.html" title="Tutorial"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">KS2D 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="other-functions">
+<h1>Other functions<a class="headerlink" href="#other-functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="quadrant-probabilities-functions">
+<h2>Quadrant probabilities functions<a class="headerlink" href="#quadrant-probabilities-functions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="KS2D.CountQuads">
+<code class="descclassname">KS2D.</code><code class="descname">CountQuads</code><span class="sig-paren">(</span><em>Arr2D</em>, <em>point</em><span class="sig-paren">)</span><a class="headerlink" href="#KS2D.CountQuads" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Computes the probabilities of finding points in each 4 quadrant defined</dt>
+<dd>by a vertical and horizontal lines crossing the point, by counting
+the proportion of points in Arr2D in each quadrant.</dd>
+<dt><strong>Arguments:</strong></dt>
+<dd><dl class="first last docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">Arr2D</span></code> <span class="classifier-delimiter">:</span> <span class="classifier">list or ndarray</span></dt>
+<dd>Array of points to be counted.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">point</span></code> <span class="classifier-delimiter">:</span> <span class="classifier">list or ndarray</span></dt>
+<dd>A 2 element list, point, which is the center of 4 square quadrants.</dd>
+</dl>
+</dd>
+<dt><strong>Returns:</strong></dt>
+<dd><dl class="first last docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">fpp</span></code>, <code class="docutils literal notranslate"><span class="pre">fnp</span></code>, <code class="docutils literal notranslate"><span class="pre">fpn</span></code>, <code class="docutils literal notranslate"><span class="pre">fnn</span></code> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>The probabilities of finding a point in each quadrants, with point
+as the origin.  p stands for positive, n for negative, with the
+first and second positions meaning the x and y directions
+respectively.</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="KS2D.FuncQuads">
+<code class="descclassname">KS2D.</code><code class="descname">FuncQuads</code><span class="sig-paren">(</span><em>func2D</em>, <em>point</em>, <em>xlim</em>, <em>ylim</em>, <em>rounddig=4</em><span class="sig-paren">)</span><a class="headerlink" href="#KS2D.FuncQuads" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Computes the probabilities of finding points in each 4 quadrant defined</dt>
+<dd>by a vertical and horizontal lines crossing the point, by integrating
+the density function <code class="docutils literal notranslate"><span class="pre">func2D</span></code> in each quadrant.</dd>
+<dt><strong>Arguments:</strong></dt>
+<dd><dl class="first last docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">func2D</span></code> <span class="classifier-delimiter">:</span> <span class="classifier">list or ndarray</span></dt>
+<dd>Density function that takes 2 arguments: <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">point</span></code> <span class="classifier-delimiter">:</span> <span class="classifier">list or ndarray</span></dt>
+<dd>A 2 element list, point, which is the center of 4 square quadrants.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">xlim</span></code>, <code class="docutils literal notranslate"><span class="pre">ylim</span></code> <span class="classifier-delimiter">:</span> <span class="classifier">list or ndarray</span></dt>
+<dd>Domain of numerical integration necessary to compute the quadrant
+probabilities.</dd>
+</dl>
+</dd>
+<dt><strong>Returns:</strong></dt>
+<dd><dl class="first last docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">fpp</span></code>, <code class="docutils literal notranslate"><span class="pre">fnp</span></code>, <code class="docutils literal notranslate"><span class="pre">fpn</span></code>, <code class="docutils literal notranslate"><span class="pre">fnn</span></code> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>The probabilities of finding a point in each quadrants, with point
+as the origin.  p stands for positive, n for negative, with the
+first and second positions meaning the x and y directions
+respectively.</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="distribution-of-the-d-statistic">
+<h2>Distribution of the D statistic<a class="headerlink" href="#distribution-of-the-d-statistic" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="KS2D.Qks">
+<code class="descclassname">KS2D.</code><code class="descname">Qks</code><span class="sig-paren">(</span><em>alam</em>, <em>iter=100</em>, <em>prec=1e-06</em><span class="sig-paren">)</span><a class="headerlink" href="#KS2D.Qks" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Computes the value of the KS probability function, as a function of</dt>
+<dd>alam, the D statistic. From <em>Numerical recipes in C</em> page 623:
+‘[…] the K–S statistic useful is that its distribution in the
+case of the null hypothesis (data sets drawn from the same
+distribution) can be calculated, at least to useful approximation,
+thus giving the significance of any observed nonzero value of D.’
+(D being the KS statistic).</dd>
+<dt><strong>Arguments:</strong></dt>
+<dd><dl class="first last docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">alam</span></code> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>D statistic.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">iter</span></code>:</dt>
+<dd>Number of iterations to be performed.
+On non-convergence, returns 1.0.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">prec</span></code>:</dt>
+<dd>Convergence criteria of the qks. Stops converging if
+that precision is attained.</dd>
+</dl>
+</dd>
+<dt><strong>Returns:</strong></dt>
+<dd><dl class="first last docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">qks</span></code> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>The significance level of the observed D statistic.</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Other functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#quadrant-probabilities-functions">Quadrant probabilities functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#distribution-of-the-d-statistic">Distribution of the D statistic</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tutorial.html"
+                        title="previous chapter">Tutorial</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/utilityfunctions.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="tutorial.html" title="Tutorial"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">KS2D 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Gabriel Taillon.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1.
+    </div>
+  </body>
+</html>

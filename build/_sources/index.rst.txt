@@ -1,5 +1,10 @@
-# 2DKS
-## 2 Dimensional Kolmogorov-Smirnov test for goodness-of-fit.
+.. 2DKS documentation master file, created by
+   sphinx-quickstart on Sat May 19 20:43:51 2018.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to 2DKS's documentation!
+================================
 
 2DKS is a two-dimensional extension to the Kolmogorov-Smyrnov test for goodness-of-fit.
 It is used to compare datasets of points to a distributions, or two datasets of points, and either rejects or not rejects the hypothesis that the sample was derived from the distribution, or that the two samples are derived from the same distribution.
@@ -13,22 +18,25 @@ These algorithms compute the relative probabilities of finding data in orthonorm
 
 ``ks2d1s`` and ``ks2d2s`` outputs the KS statistic *D*, and the significance level *prob* of that observed value of *D*, respectively. If *D* is lower than your significance level, you cannot reject the null hypothesis. As for the *prob*, the lower the better. I have not yet a full grasp on the significance of this number.
 
-## Issues
+Requirements: **scipy**, **numpy**.
+
+Contents:
+#########
+.. toctree::
+   :maxdepth: 2
+   
+   tutorial
+   utilityfunctions
+   
+Issues:
+#########   
 
 Float number representation and rounding: probabilities expected to sum to 1.0 return 0.99999999 instead, etc... No plans to implement any kind of solution to this: it sounds much more trouble than it is worth. This test is theoretically just an approximation, rounding to a couple digits seem reasonable.
 
 ``ks2d1s``: Input: no 2D density matrices. Integration method: only numerical.
-
-## MISC
-
-Prerequisites: *scipy*, *numpy*.
-
-Keywords: Kolmogorov-smirnov test, multi-dimensional, two-dimensional, KS test, hypothesis testing, statistics, probability theory.
-
-Based on the idea by Peacock (1983), an upgrade by Fasano and Franceschin (1987) with
-much guidance from Numerical recipes in C by Press and Teukolsky (1996).
-
-# References
+  
+References
+##########
 [1] Peacock, J. A. (1983). Two-dimensional goodness-of-fit testing in astronomy. *Monthly Notices of the Royal Astronomical Society*, 202(3), 615-627.
 
 [2] Fasano, G., & Franceschini, A. (1987). A multidimensional version of the Kolmogorov–Smirnov test. *Monthly Notices of the Royal Astronomical Society*, 225(1), 155-170.
