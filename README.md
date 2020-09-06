@@ -6,7 +6,7 @@ It is used to compare datasets of points to a distributions, or two datasets of 
 
 *Note*: the test only rejects the hypothesis that the data fits with the probability distribution, or does not reject it for a certain significance level. It cannot confirm, only 'not-reject'.
 
-In this case, we check if two-dimensional data fits a particular distribution. The extension to higher dimensions is non-trivial and requires on the order of N2 operations i.e. slow for large datasets.
+In this case, we check if two-dimensional data fits a particular distribution. The extension to higher dimensions is non-trivial and requires on the order of $O(n^2)$ operations i.e. slow for large datasets.
 
 Mainly intended to be interacted with using functions ``ks2d1s`` and ``ks2d2s``, which take as inputs one 2-column matrix and one 2D function, or two 2-column matrices respectively. 
 These algorithms compute the relative probabilities of finding data in orthonormal quadrants that surround each point in the data set, then uses those to compute the K-S statistic with its distribution function (`Qks`). Look around 14.3.7 and 14.7.1 in [3] for detailed arcane mathemagic explanations. 
