@@ -28,14 +28,12 @@ def CountQuads(Arr2D, point):
     negative, with the first and second positions meaning the x and y
     directions respectively.
     """
-    # A bit of checking. If Arr2D and point are not lists or ndarray, exit.
     if isinstance(point, list):
         point = np.asarray((np.ravel(point)))
     elif type(point).__module__+type(point).__name__ == 'numpyndarray':
         point = np.ravel(point.copy())
     else:
-        raise ValueError('A very specific bad thing happened.')
-        return
+        raise TypeError('Input point is neither list nor numpyndarray')
     if len(point) != 2:
         return
     if isinstance(Arr2D, list):
@@ -43,11 +41,11 @@ def CountQuads(Arr2D, point):
     elif type(Arr2D).__module__+type(Arr2D).__name__ == 'numpyndarray':
         pass
     else:
-        return
+        raise TypeError('Input Arr2D is neither list nor numpyndarray')
     if Arr2D.shape[1] > Arr2D.shape[0]:  # Reshape to A[row,column]
         Arr2D = Arr2D.copy().T
     if Arr2D.shape[1] != 2:
-        return
+        raise TypeError('Input Arr2D is not 2D')
     # The pp of Qpp refer to p for 'positive' and n for 'negative' quadrants.
     # In order. first subscript is x, second is y.
     Qpp = Arr2D[(Arr2D[:, 0] > point[0]) & (Arr2D[:, 1] > point[1]), :]
@@ -81,42 +79,41 @@ def FuncQuads(func2D, point, xlim, ylim, rounddig=4):
     n for negative, with the first and second positions meaning the x and y
     directions respectively.
     """
-    # If func2D is not a function with 2 arguments, exit.
     if callable(func2D):
         if len(inspect.getfullargspec(func2D)[0]) != 2:
-            return
+            raise TypeError('Input func2D is not a function with 2 arguments')
         pass
     else:
-        return
+        raise TypeError('Input func2D is not a function')
     # If xlim, ylim and point are not lists or ndarray, exit.
     if isinstance(point, list):
         point = np.asarray((np.ravel(point)))
     elif type(point).__module__+type(point).__name__ == 'numpyndarray':
         point = np.ravel(point.copy())
     else:
-        return
+        raise TypeError('Input point is not a list or numpyndarray')
     if len(point) != 2:
-        return
+        raise TypeError('Input point has not exactly 2 elements')
     if isinstance(xlim, list):
         xlim = np.asarray((np.sort(np.ravel(xlim))))
     elif type(xlim).__module__+type(xlim).__name__ == 'numpyndarray':
         xlim = np.sort(np.ravel(xlim.copy()))
     else:
-        return
+        raise TypeError('Input xlim is not a list or ndarray')
     if len(xlim) != 2:
-        return
+        raise TypeError('Input xlim has not exactly 2 elements')
     if xlim[0] == xlim[1]:
-        return
+        raise TypeError('Input xlim[0] should be different to xlim[1]')
     if isinstance(ylim, list):
         ylim = np.asarray((np.sort(np.ravel(ylim))))
     elif type(ylim).__module__+type(ylim).__name__ == 'numpyndarray':
         ylim = np.sort(np.ravel(ylim.copy()))
     else:
-        return
+        raise TypeError('Input ylim is not a list or ndarray')
     if len(ylim) != 2:
-        return
+        raise TypeError('Input ylim has not exactly 2 elements')
     if ylim[0] == ylim[1]:
-        return
+        raise TypeError('Input ylim[0] should be different to ylim[1]')
     # Numerical integration to find the quadrant probabilities.
     totInt = scipy.integrate.dblquad(func2D, *xlim,
                                      lambda x: np.amin(ylim),
@@ -160,7 +157,7 @@ def Qks(alam, iter=100, prec=1e-6):
     if isinstance(alam, int) | isinstance(alam, float):
         pass
     else:
-        return
+        raise TypeError('Input alam is neither int nor float')
     toadd = [1]
     qks = 0.
     j = 1
@@ -192,19 +189,19 @@ def ks2d2s(Arr2D1, Arr2D2):
     if type(Arr2D1).__module__+type(Arr2D1).__name__ == 'numpyndarray':
         pass
     else:
-        return
+        raise TypeError('Input Arr2D1 is neither list nor numpyndarray')
     if Arr2D1.shape[1] > Arr2D1.shape[0]:
         Arr2D1 = Arr2D1.copy().T
     if type(Arr2D2).__module__+type(Arr2D2).__name__ == 'numpyndarray':
         pass
     else:
-        return
+        raise TypeError('Input Arr2D2 is neither list nor numpyndarray')
     if Arr2D2.shape[1] > Arr2D2.shape[0]:
         Arr2D2 = Arr2D2.copy().T
     if Arr2D1.shape[1] != 2:
-        return
+        raise TypeError('Input Arr2D1 is not 2D')
     if Arr2D2.shape[1] != 2:
-        return
+        raise TypeError('Input Arr2D2 is not 2D')
     d1, d2 = 0., 0.
     for point1 in Arr2D1:
         fpp1, fmp1, fpm1, fmm1 = CountQuads(Arr2D1, point1)
@@ -251,19 +248,19 @@ def ks2d1s(Arr2D, func2D, xlim=[], ylim=[]):
     """
     if callable(func2D):
         if len(inspect.getfullargspec(func2D)[0]) != 2:
-            return
+            raise TypeError('Input func2D is not a function with 2 input arguments')
         pass
     else:
-        return
+        raise TypeError('Input func2D is not a function')
     if type(Arr2D).__module__+type(Arr2D).__name__ == 'numpyndarray':
         pass
     else:
-        return
+        raise TypeError('Input Arr2D is neither list nor numpyndarray')
     print(Arr2D.shape)
     if Arr2D.shape[1] > Arr2D.shape[0]:
         Arr2D = Arr2D.copy().T
     if Arr2D.shape[1] != 2:
-        return
+        raise TypeError('Input Arr2D is not 2D')
     if xlim == []:
         xlim.append(np.amin(Arr2D[:, 0]) -
                     abs(np.amin(Arr2D[:, 0]) -
