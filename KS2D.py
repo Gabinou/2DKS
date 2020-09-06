@@ -34,6 +34,7 @@ def CountQuads(Arr2D, point):
     elif type(point).__module__+type(point).__name__ == 'numpyndarray':
         point = np.ravel(point.copy())
     else:
+        raise ValueError('A very specific bad thing happened.')
         return
     if len(point) != 2:
         return
