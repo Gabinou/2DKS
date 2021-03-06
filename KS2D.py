@@ -137,7 +137,7 @@ def FuncQuads(func2D, point, xlim, ylim, rounddig=4):
     return(fpp, fnp, fpn, fnn)
 
 
-def Qks(alam, iter=100, prec=1e-6):
+def Qks(alam, iter=100, prec=1e-17):
     """ Computes the value of the KS probability function, as a function of
     alam, the D statistic. From *Numerical recipes in C* page 623: '[...]
     the K–S statistic useful is that its distribution in the case of the null
