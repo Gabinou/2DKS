@@ -1,4 +1,6 @@
 # KS2D
+Prerequisites: *scipy*, *numpy*.
+
 ## 2 Dimensional Kolmogorov-Smirnov test for goodness-of-fit.
 
 KS2D is a two-dimensional extension to the Kolmogorov-Smyrnov test for goodness-of-fit.
@@ -18,13 +20,7 @@ Float number representation and rounding: probabilities expected to sum to 1.0 r
 ``ks2d1s``: Input: no 2D density matrices. Integration method: only numerical.
 
 ## MISC
-
-Prerequisites: *scipy*, *numpy*.
-
 Keywords: Kolmogorov-smirnov test, multi-dimensional, two-dimensional, KS test, hypothesis testing, statistics, probability theory.
-
-Based on the idea by Peacock (1983), an upgrade by Fasano and Franceschin (1987) with
-much guidance from Numerical recipes in C by Press and Teukolsky (1996).
 
 # References
 [1] Peacock, J. A. (1983). Two-dimensional goodness-of-fit testing in astronomy. *Monthly Notices of the Royal Astronomical Society*, 202(3), 615-627.
@@ -32,3 +28,9 @@ much guidance from Numerical recipes in C by Press and Teukolsky (1996).
 [2] Fasano, G., & Franceschini, A. (1987). A multidimensional version of the Kolmogorov–Smirnov test. *Monthly Notices of the Royal Astronomical Society*, 225(1), 155-170.
 
 [3] Press, W. H., Teukolsky, S. A., Vetterling, W. T., & Flannery, B. P. (1996). *Numerical recipes in C (Vol. 2).* Cambridge: Cambridge university press.
+
+## Credits
+Copyright (c) 2025 Gabriel Taillon
+
+Based on the idea by Peacock (1983), an upgrade by Fasano and Franceschin (1987) with
+much guidance from Numerical recipes in C by Press and Teukolsky (1996).
